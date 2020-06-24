@@ -1,5 +1,5 @@
 <?php
-namespace app\validate;
+namespace app\commom\validate;
 use think\Validate;
 use think\facade\Request;
 use app\lib\exception\ParameterException;

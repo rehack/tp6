@@ -6,5 +6,7 @@ return [
     // 多语言加载
     // \think\middleware\LoadLangPack::class,
     // Session初始化
-    // \think\middleware\SessionInit::class
+    // \think\middleware\SessionInit::class,
+    // 跨域中间件 这个中间件必须最后执行
+    \think\middleware\AllowCrossDomain::class,
 ];
