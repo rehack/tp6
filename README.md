@@ -3,6 +3,10 @@ ThinkPHP 6.0
 
 > 运行环境要求PHP7.1+。
 
+[官方应用服务市场](https://www.thinkphp.cn/service) | [`ThinkPHP`开发者扶持计划](https://sites.thinkphp.cn/1782366)
+
+ThinkPHPV6.0版本由[亿速云](https://www.yisu.com/)独家赞助发布。
+
 ## 主要新特性
 
 * 采用`PHP7`强类型（严格模式）
