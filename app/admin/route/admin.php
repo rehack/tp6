@@ -2,4 +2,4 @@
 use think\facade\Route;
 
 
-Route::post('test', 'index/index');
+Route::get('test', 'index/index');
