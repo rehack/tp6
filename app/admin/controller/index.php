@@ -17,28 +17,32 @@ class index
      */
     public function index()
     {
-        AlibabaCloud::accessKeyClient('<accessKeyId>', '<accessSecret>')
-                        ->regionId('cn-hangzhou')
-                        ->asDefaultClient();
-
+        AlibabaCloud::accessKeyClient('LTAI4G5jcEvAAqTaprRBHaYq', 'cewRuOT3zOyA0OpH58fnniQaMI4pZy')
+        ->regionId('cn-hangzhou')
+        ->asDefaultClient();
+    
+        $tmpparam = [
+            'name' => '周波',
+            'time' => date("Y-m-d")
+        ];
         try {
             $result = AlibabaCloud::rpc()
-                                ->product('Dysmsapi')
-                                // ->scheme('https') // https | http
-                                ->version('2017-05-25')
-                                ->action('SendSms')
-                                ->method('POST')
-                                ->host('dysmsapi.aliyuncs.com')
-                                ->options([
-                                                'query' => [
-                                                'RegionId' => "cn-hangzhou",
-                                                'PhoneNumbers' => "13540025225",
-                                                'SignName' => "贝臣口腔",
-                                                'TemplateCode' => "SMS_197885900",
-                                                'TemplateParam' => "{\"name\":\"周波\",\"time\":\"7-25\"}",
-                                                ],
-                                            ])
-                                ->request();
+            ->product('Dysmsapi')
+            // ->scheme('https') // https | http
+            ->version('2017-05-25')
+            ->action('SendSms')
+            ->method('POST')
+            ->host('dysmsapi.aliyuncs.com')
+            ->options([
+                'query' => [
+                'RegionId' => "cn-hangzhou",
+                'PhoneNumbers' => "13540025225",
+                'SignName' => "贝臣口腔",
+                'TemplateCode' => "SMS_197885900",
+                'TemplateParam' => json_encode($tmpparam),
+                ],
+            ])
+            ->request();
             print_r($result->toArray());
         } catch (ClientException $e) {
             echo $e->getErrorMessage() . PHP_EOL;
